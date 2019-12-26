@@ -1,4 +1,4 @@
-﻿namespace Gmts
+﻿namespace Gmts.Models
 {
     public struct LatLng
     {

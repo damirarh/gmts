@@ -1,4 +1,4 @@
-﻿namespace Gmts
+﻿namespace Gmts.Models
 {
     public class CacheData
     {
@@ -17,6 +17,6 @@
 
         public CacheData(CacheData cacheData)
             : this(cacheData.Code, cacheData.OriginalCoords, cacheData.Bearing, cacheData.Distance)
-        {}
+        { }
     }
 }

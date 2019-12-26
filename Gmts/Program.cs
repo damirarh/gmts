@@ -1,4 +1,7 @@
-﻿using McMaster.Extensions.CommandLineUtils;
+﻿using Gmts.Csv;
+using Gmts.Gpx;
+using Gmts.Processors;
+using McMaster.Extensions.CommandLineUtils;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
@@ -28,7 +31,7 @@ namespace Gmts
             var gpxParser = new GpxFileParser();
             var parsedCaches = gpxParser.Parse(gpxDocument);
 
-            var processor = new CacheProcessor();
+            var processor = new PirateCruiseProcessor();
             var processedCaches = parsedCaches.Select(cache => processor.Process(cache));
 
             var csvWriter = new CsvFileWriter();

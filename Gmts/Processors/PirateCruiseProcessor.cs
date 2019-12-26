@@ -1,9 +1,10 @@
 ﻿using Geo.Geodesy;
 using Geo.Geometries;
+using Gmts.Models;
 
-namespace Gmts
+namespace Gmts.Processors
 {
-    public class CacheProcessor
+    public class PirateCruiseProcessor
     {
         private readonly SpheroidCalculator calculator = new SpheroidCalculator(Spheroid.Wgs84);
 

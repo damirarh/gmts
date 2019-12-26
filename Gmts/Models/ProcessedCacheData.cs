@@ -1,4 +1,6 @@
-﻿namespace Gmts
+﻿using Gmts.Models;
+
+namespace Gmts
 {
     public class ProcessedCacheData : CacheData
     {

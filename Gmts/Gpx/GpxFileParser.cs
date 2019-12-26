@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using Gmts.Models;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
-namespace Gmts
+namespace Gmts.Gpx
 {
     public class GpxFileParser
     {

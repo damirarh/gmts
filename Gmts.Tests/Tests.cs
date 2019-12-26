@@ -1,4 +1,8 @@
 using FluentAssertions;
+using Gmts.Csv;
+using Gmts.Gpx;
+using Gmts.Models;
+using Gmts.Processors;
 using NUnit.Framework;
 using System;
 using System.IO;
@@ -27,7 +31,7 @@ namespace Gmts.Tests
         public void ProcessCacheData()
         {
             var cacheData = new CacheData("GC7WP8Y", new LatLng(43.550767, 16.51405), -23.896, 905.656);
-            var processor = new CacheProcessor();
+            var processor = new PirateCruiseProcessor();
 
             var processed = processor.Process(cacheData);
 
