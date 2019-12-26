@@ -2,6 +2,7 @@
 using Gmts.Gpx;
 using Gmts.Processors;
 using McMaster.Extensions.CommandLineUtils;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
@@ -27,6 +28,10 @@ namespace Gmts
         [Option(Description = "CSV file with calculated coordinates")]
         public string Output { get; }
 
+        [Required]
+        [Option(Description = "Trail to calculate final coordinates for (supported: PirateCruise)")]
+        public TrailProcessor Trail { get; set; }
+
         private void OnExecute()
         {
             var gpxDocument = XDocument.Load(Input);
@@ -34,7 +39,7 @@ namespace Gmts
             var gpxParser = new GpxFileParser();
             var parsedCaches = gpxParser.Parse(gpxDocument);
 
-            var processor = new PirateCruiseProcessor();
+            var processor = GetProcessor();
             var processedCaches = parsedCaches.Select(cache => processor.Process(cache));
 
             var csvWriter = new CsvFileWriter();
@@ -42,6 +47,20 @@ namespace Gmts
             {
                 csvWriter.Write(processedCaches, writer);
             }
+        }
+
+        private IProcessor GetProcessor()
+        {
+            var enumType = typeof(TrailProcessor);
+            var enumValueMemberInfo = enumType.GetMember(Trail.ToString())
+                .FirstOrDefault(member => member.DeclaringType == enumType);
+
+            var processorAttribute = (ProcessorAttribute)Attribute.GetCustomAttribute(
+                enumValueMemberInfo, 
+                typeof(ProcessorAttribute)
+            );
+
+            return (IProcessor)Activator.CreateInstance(processorAttribute.ProcessorType);
         }
     }
 }

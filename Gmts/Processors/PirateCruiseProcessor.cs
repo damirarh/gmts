@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace Gmts.Processors
 {
-    public class PirateCruiseProcessor
+    public class PirateCruiseProcessor : IProcessor
     {
         private readonly SpheroidCalculator calculator = new SpheroidCalculator(Spheroid.Wgs84);
         private readonly Regex distanceAndBearingRegex = new Regex(
