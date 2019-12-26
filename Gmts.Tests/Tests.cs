@@ -1,12 +1,11 @@
 using FluentAssertions;
 using NUnit.Framework;
-using PirateCruise;
 using System;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace Tests
+namespace Gmts.Tests
 {
     public class Tests
     {

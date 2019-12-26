@@ -1,7 +1,7 @@
 ﻿using Geo.Geodesy;
 using Geo.Geometries;
 
-namespace PirateCruise
+namespace Gmts
 {
     public class CacheProcessor
     {

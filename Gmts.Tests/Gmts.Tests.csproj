@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PirateCruise\PirateCruise.csproj" />
+    <ProjectReference Include="..\Gmts\Gmts.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace PirateCruise
+﻿namespace Gmts
 {
     public class CacheData
     {

@@ -1,6 +1,6 @@
 ﻿using CsvHelper.Configuration;
 
-namespace PirateCruise
+namespace Gmts
 {
     public sealed class ProcessedCacheDataClassMap : ClassMap<ProcessedCacheData>
     {
