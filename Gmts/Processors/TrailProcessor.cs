@@ -3,6 +3,8 @@
     public enum TrailProcessor
     {
         [Processor(typeof(PirateCruiseProcessor))]
-        PirateCruise
+        PirateCruise,
+        [Processor(typeof(PotMiruProcessor))]
+        PotMiru
     }
 }

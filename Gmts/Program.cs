@@ -29,7 +29,7 @@ namespace Gmts
         public string Output { get; }
 
         [Required]
-        [Option(Description = "Trail to calculate final coordinates for (supported: PirateCruise)")]
+        [Option(Description = "Trail to calculate final coordinates for (supported: PirateCruise, PotMiru)")]
         public TrailProcessor Trail { get; set; }
 
         private void OnExecute()

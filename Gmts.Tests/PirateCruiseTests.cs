@@ -22,11 +22,17 @@ A disease endemic to the tropics often called the curse of the white man as it d
 
 <p>Additional Waypoints</p>".Replace("\r\n", "\n");
 
+        private PirateCruiseProcessor processor;
+
+        [SetUp]
+        public void SetUp()
+        {
+            processor = new PirateCruiseProcessor();
+        }
+
         [Test]
         public void ParseDistanceAndBearing()
         {
-            var processor = new PirateCruiseProcessor();
-
             var distanceAndBearing = processor.ParseDistanceAndBearing(longDescription);
 
             var expected = (905.656, -23.896);
@@ -37,15 +43,11 @@ A disease endemic to the tropics often called the curse of the white man as it d
         public void ProcessCacheData()
         {
             var cacheData = new CacheData("GC7WP8Y", new LatLng(43.550767, 16.51405), longDescription);
-            var processor = new PirateCruiseProcessor();
 
             var processed = processor.Process(cacheData);
 
             var expected = new ProcessedCacheData(cacheData, new LatLng(43.558220, 16.509510));
-            processed.Should().BeEquivalentTo(expected, options => options
-                .ComparingByMembers<LatLng>()
-                .Using<double>(ctx => ctx.Subject.Should().BeApproximately(ctx.Expectation, 0.000001)).WhenTypeIs<double>()
-            );
+            processed.Should().BeEquivalentToProcessedCacheData(expected);
         }
     }
 }
