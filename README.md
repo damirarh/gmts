@@ -1,11 +1,17 @@
-Tool for calculating final coordinates for the [Pirate Cruise geocaching trails](https://www.geocaching.com/play/search?ot=4&types=8&kw=Pirate%20Cruise&c=53&utr=false) near Split, Croatia.
+# GMTS - Geocaching Mystery Trail Solver
+
+Tool for calculating final coordinates for geocaching mystery trails. Currently supported trails:
+
+- [Pirate Cruise geocaching trails](https://www.geocaching.com/play/search?ot=4&types=8&kw=Pirate%20Cruise&c=53&utr=false) near Split, Croatia.
+- [Pot miru geocaching trail](https://www.geocaching.com/play/search?ot=4&types=8&kw=Pot%20miru&owner[0]=BrdaTeam&c=181) near Nova Gorica, Slovenia
 
 ```
-Usage: PirateCruise [options]
+Usage: Gmts [options]
 
 Options:
   -i|--input <INPUT>    GPX file with cache details
   -o|--output <OUTPUT>  CSV file with calculated coordinates
+  -t|--trail <TRAIL>    Trail to calculate final coordinates for (supported: PirateCruise, PotMiru)
   -?|-h|--help          Show help information
 ```
 
