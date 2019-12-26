@@ -9,7 +9,7 @@ namespace Gmts.Tests
     public class PirateCruiseTests
     {
         internal static readonly string gpxFile = Path.Combine(TestContext.CurrentContext.TestDirectory, "PirateCruise.gpx");
-        internal static readonly string pirateCruiseLongDescription = @"<div style=""background-image:url(https://img.geocaching.com/cache/large/3a569cff-4fa2-4590-b51b-31d1481c12e3.jpg);background-repeat:no-repeat;background-position:center;padding-top:140px;padding-left:100px;padding-right:100px;height:300px;margin-bottom:10px;font-size:12pt;font-style:italic;color:black;""><img src=""https://ringzer0team.com/images/fs/55.png"" /><br />
+        internal static readonly string longDescription = @"<div style=""background-image:url(https://img.geocaching.com/cache/large/3a569cff-4fa2-4590-b51b-31d1481c12e3.jpg);background-repeat:no-repeat;background-position:center;padding-top:140px;padding-left:100px;padding-right:100px;height:300px;margin-bottom:10px;font-size:12pt;font-style:italic;color:black;""><img src=""https://ringzer0team.com/images/fs/55.png"" /><br />
 Tropske endemske bolesti često nazivaju prokletstvo bijelog čovijeka, jer nije izgledalo da utječe na domaće stanovništvo. Suvremeni povjesničari vjeruju da je to bio tifus, uzročen kontaminiranom pitkom vodom. No, zapravo riječ „žuta groznica“ vjerojatno pokriva cijeli niz tropskih bolesti.<br />
 <br /></div>
 <div style=""background-image:url(https://img.geocaching.com/cache/large/3a569cff-4fa2-4590-b51b-31d1481c12e3.jpg);background-repeat:no-repeat;background-position:center;padding-top:140px;padding-left:100px;padding-right:100px;height:300px;margin-bottom:10px;font-size:12pt;font-style:italic;color:black;""><img src=""https://ringzer0team.com/images/fs/81.png"" /><br />
@@ -27,7 +27,7 @@ A disease endemic to the tropics often called the curse of the white man as it d
         {
             var processor = new PirateCruiseProcessor();
 
-            var distanceAndBearing = processor.ParseDistanceAndBearing(pirateCruiseLongDescription);
+            var distanceAndBearing = processor.ParseDistanceAndBearing(longDescription);
 
             var expected = (905.656, -23.896);
             distanceAndBearing.Should().BeEquivalentTo(expected);
@@ -36,7 +36,7 @@ A disease endemic to the tropics often called the curse of the white man as it d
         [Test]
         public void ProcessCacheData()
         {
-            var cacheData = new CacheData("GC7WP8Y", new LatLng(43.550767, 16.51405), pirateCruiseLongDescription);
+            var cacheData = new CacheData("GC7WP8Y", new LatLng(43.550767, 16.51405), longDescription);
             var processor = new PirateCruiseProcessor();
 
             var processed = processor.Process(cacheData);

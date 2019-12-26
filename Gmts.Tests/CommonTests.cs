@@ -21,7 +21,7 @@ namespace Gmts.Tests
 
             var parsed = parser.Parse(gpxDocument).Single();
 
-            var expected = new CacheData("GC7WP8Y", new LatLng(43.550767, 16.51405), PirateCruiseTests.pirateCruiseLongDescription);
+            var expected = new CacheData("GC7WP8Y", new LatLng(43.550767, 16.51405), PirateCruiseTests.longDescription);
             parsed.Should().BeEquivalentTo(expected);
         }
 
@@ -31,7 +31,7 @@ namespace Gmts.Tests
             var cacheData = new[]
             {
                 new ProcessedCacheData(
-                    new CacheData("GC7WP8Y", new LatLng(43.550767, 16.51405), PirateCruiseTests.pirateCruiseLongDescription),
+                    new CacheData("GC7WP8Y", new LatLng(43.550767, 16.51405), PirateCruiseTests.longDescription),
                     new LatLng(43.558220, 16.509510)
                 )
             };
