@@ -5,7 +5,10 @@ using McMaster.Extensions.CommandLineUtils;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Xml.Linq;
+
+[assembly: InternalsVisibleToAttribute("Gmts.Tests")]
 
 namespace Gmts
 {
